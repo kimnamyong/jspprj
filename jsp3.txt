@@ -1,0 +1,131 @@
+jsp/servlet 3일차
+
+1) 스크립트태그
+2) 디텍티브태그
+3) 액션태그
+
+JSTL/EL
+
+서블릿 servlet
+jsp 내장객체
+
+JDBC
+DAO
+------------------------
+webapp->day03 폴더
+
+calcForm.html
+
+JSP로 계산기 만들기-MVC1
+servlet으로 계산기 만들기-MVC2
+
+servlet 2.0->3.0
+                2009
+WebContent ->WebApp
+
+
+jsp 내장객체
+
+jsp(web)->41번게시판
+
+request
+response
+out - body 본문
+session
+application
+
+out.print ->본문내용, body
+헤더 정보
+
+response 
+
+login.jsp
+
+response.sendRedirect()
+
+application
+서비스가 실행되는 동안
+
+방문자 카운트
+가게 오픈
+
+session 객체
+로그인->로그아웃
+
+login.html
+
+세션과 쿠키
+
+세션-서버에 저장
+쿠키-클라이언트에 저장
+
+JDBC
+
+oracle
+mysql
+h2
+마리아
+몽고
+
+메이븐으로 관리
+maven
+
+
+자바에서 Reflection은 
+객체의 내부 구조를 
+동적으로 접근하고
+ 조작할 수 있는 기능을 
+제공하는 API입니다. 
+
+자바프로젝트 생성시 
+Create module-info.java file에 체크 해제
+
+프로젝트에 우클릭
+-> Build path
+->Configure build path 에 라이브러리를 추가한다.
+
+missing type sqlException
+
+prepareStatement
+SQL 쿼리를 실행하기 위한 준비된 문장을 나타내는 JDBC 클래스입니다.
+
+signup.html
+
+INSERT INTO user(id,password,name,ts) values('aaa@l', '1234', 'kim', now())
+
+
+ALTER TABLE user CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER DATABASE mysns DEFAULT CHARACTER SET utf8 ;
+
+DAO
+
+UserDAO
+
+테이블
+내부조인,외부조인
+
+maven/gradle
+
+jar/ war
+
+pom.xml
+
+mvnrepository
+
+jstl 1.2
+mysql
+
+리파지토리 - 저장소
+
+
+
+
+
+
+
+
+
+
+
+
+

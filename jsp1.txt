@@ -1,0 +1,133 @@
+jsp 1일차
+
+eclipse 설치
+tomcat 9 다운로드
+
+
+www.eclipse.org
+
+MVC 패턴
+View -> jsp, mustach, thyleaf
+
+이클립스
+프로젝트1 폴더
+프로젝트2
+프로젝트3
+
+인텔리제이
+프로젝트1 하나당 윈도우창하나
+
+file->New->Dynamic Web Project
+
+아파치 ->tomcat 9.0
+
+64bit windows.zip
+
+구버전
+WebContent
+
+src->main->webapp
+
+
+
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+
+backend->jsp web
+16번게시판
+
+
+환경설정
+window->preferences
+
+ctrl+F11 
+
+스크립트 태그
+
+<%!    변수선언   %>
+<% 실행문 %>
+<%=  표현문 %>
+
+<%--  --%>
+
+ctrl+shift+ /  
+ctrl+shift+c  
+
+jar 
+java 라이브러리
+
+스파게티코드
+비빔밥코드
+
+test01
+
+디텍티브 태그
+
+D:\kny\jspprj\.metadata\.plugins
+\org.eclipse.wst.server.core\tmp0
+\work\Catalina\localhost\jsp1\org\apache\jsp
+
+test1_jsp.java
+servelet
+
+jsp는 html태그안에 자바코드가 있는 것
+servlet은 자바코드안에 html 태그가 있는 것
+
+utf-8
+
+디렉티브 -> @ 
+
+page
+include
+
+header.jsp
+main.jsp
+footer.jsp
+
+org.apache.catalina.startup
+카탈리나 - 톰켓 서버 엔진
+
+
+taglib디텍티브 태그
+JSTL
+JSTL(JSP Standard Tag Library)
+
+<% %>
+
+
+webapp->web-inf->lib 붙이기
+
+JSP실습
+JSP 기초#1
+
+
+file->new->project->java project
+javatest -> src
+-> javatest-> day01->class
+com.test.ex01
+
+2번게시판 -> jsp기초 #2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

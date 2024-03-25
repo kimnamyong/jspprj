@@ -1,0 +1,47 @@
+jsp/servlet 4일차
+
+1) 스크립트태그
+2) 디텍티브태그
+3) 액션태그
+
+JSTL/EL
+
+서블릿 servlet
+jsp 내장객체
+
+JDBC
+DAO
+------------------------
+jsp(web)
+44번게시판->JDBC II
+
+회원삭제와 커넥션풀
+
+sql에서 문자데이터는
+'홋따옴표'
+
+withdraw.html
+withdraw2.jsp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

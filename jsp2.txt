@@ -1,0 +1,121 @@
+jsp/servlet 2일차
+
+1) 스크립트태그
+2) 디텍티브태그
+3) 액션태그
+
+JSTL/EL
+
+서블릿 servlet
+jsp 내장객체
+
+JDBC
+DAO
+------------------------
+쿠키, 세션, 필터등
+
+Maven과 gradle
+
+taglib- 태그라이브러리
+
+ctrl+alt+아래방향키->줄복사
+
+jstl
+mustache
+thymleaf
+
+fmt 태그 라이브러리
+
+Expression language
+
+
+jsp(web)->19번게시판
+
+자바빈즈 사용법
+
+MemberBean 클래스
+
+usebean.jsp
+
+page 현재페이지만
+request  요청받는 동안
+session  세션유지동안
+application   사이트전체
+
+form 태그 데이터 입력 전송
+
+member.jsp
+
+한글데이터 전송은 
+page 디렉티브 태그에 
+charset=utf-8 을 추가한다.
+
+
+<% request.setCharacterEncoding("utf-8"); %>
+
+
+39번게시판 서블릿
+
+LoginServlet
+
+http://localhost:8080/jsp1/login
+
+
+서블릿의 getContextPath() 메소드는
+ 서블릿 컨텍스트의
+ 경로를 반환하는 메소드입니다
+
+
+Servlet 
+java 코드로 되있는 Controller
+
+
+http://localhost:8080/jsp1/hello?id=kim
+http://localhost:8080/jsp1/hello?id=Lee
+
+
+day02->jsp파일들...
+login.html
+
+server 우클-> clean
+
+{" ", /"}
+
+ctrl+shift+f
+
+
+jsp실습-> 3번게시판
+JSP기초(jstl) 연습하기
+
+4번게시판 
+03 입력폼 #1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
