@@ -1,0 +1,66 @@
+jsp/servlet 5일차
+
+1) 스크립트태그
+2) 디텍티브태그
+3) 액션태그
+
+JSTL/EL
+
+서블릿 servlet
+jsp 내장객체
+
+JDBC
+DAO
+------------------------
+
+SQLSyntaxError - SQL구문,DB
+ClassNotFound ->라이브러리인식
+
+core.css
+core.js
+css/core.css
+js/core.js
+제이쿼리 라이브러리
+jquery.com에서 다운받기
+
+webapp-css
+webapp-js
+
+ajax요청
+
+main.html
+main.css
+
+
+<dependencies>
+
+
+</dependencies>
+
+의존성
+
+캐시 cache
+
+servlet->jsp 리다이렉트
+서블릿에서 직접실행
+
+
+<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+
+JSP실습->5번게시판 
+입력폼#2
+
+
+
+
+
+
+
+
+

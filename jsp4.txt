@@ -23,17 +23,86 @@ sql에서 문자데이터는
 withdraw.html
 withdraw2.jsp
 
+src/main/webapp 
+-> META-INF 
+-> context.xml 
 
+JNDI 
 
+ConnectionPool.java
 
+userList.jsp
 
+43번게시판
 
+글작성 기능 추가
 
+feedAdd.html
+feedAdd.jsp
+feedAdd2.jsp
 
+FeedDAO.java
 
+INSERT INTO feed(id, content) VALUES(?, ?)
+INSERT INTO feed(id, content) VALUES('aaa','bbbb')
 
+레코드 삭제명령어 설정하기
+delete from feed where id is null;
 
+Edit->Preference 
+->SQL Editor->Save updates 체크해제
+MySQL 재시작
 
+Query->Auto Commit Transaction 체크
+
+회원가입
+회원탈퇴
+게시글작성
+로그인
+/////////////////////////////
+45번게시판
+
+login.html
+login.jsp
+main.jsp
+logout.jsp
+
+1->아이디없음
+2->패스워드불일치
+0 -> 정상로그인
+
+main2.jsp
+////////////////////////
+파일 업로드
+// feed 테이블에 images 필드를 추가해야 합니다. 
+
+ALTER TABLE feed ADD COLUMN images VARCHAR(1024)
+alter table feed drop column 잘못쓴필드명;
+
+46번게시판
+feedAddTest.jsp
+feedAdd2.jsp
+
+FileUtil.java
+FeedObj.java
+main2.jsp
+FeedDAO.java
+
+PreparedStatement
+Connection Pool
+DAO
+파일업로드
+
+47번 게시판
+MySNS프로젝트
+
+프로젝트명
+MySNS 
+
+context.xml
+ -> 커넥션풀 추가
+
+필터기능
 
 
 
