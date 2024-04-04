@@ -38,13 +38,14 @@ color: #888;
 <div class="page-hdr">MySNS</div>
     <div class="page-body">
         <div class="section pad-24 mtop-30">
-            <!-- input id="id" type="text" placeholder="아이디 (이메일주소)" -->
+            <input id="id" type="text" placeholder="아이디 (이메일주소)">
             <textarea id="content" placeholder="이곳에 글을 작성해주세요."></textarea>
             <div class="section pad-4 mtop-30"> 
             <div class="desc">아래에서 이미지를 선택해주세요.</div> 
              <input type="file" id="image">
             </div>
-            <input type="submit" class="mtop-30" value="업로드하기" onclick="upload()">
+            <input type="submit" class="mtop-30" 
+            value="업로드하기" onclick="upload()">
         </div>
     </div>
     <div class="page-footer">Copyright: mysns.com, 202x</div>
@@ -56,6 +57,16 @@ color: #888;
 <script>
 $(document).ready(function() {
     Page.init(start);
+    
+ /*     AJAX.call("/session.jsp", null, function(data) {
+        var uid = data.trim();
+         if (uid == "null") {
+              alert("로그인이 필요한 서비스 입니다.");
+              window.location.href = "login.html";
+         }
+
+     }); */ 
+    
 });
 
 var _uid = null;
@@ -63,15 +74,11 @@ function start(uid) {
     _uid = uid;    
 }
 
-function upload() {
-    /* var id = $("#id").val().trim();
-    if (id == "") {
-        alert(‎"아이디를 입력해 주세요.");
-        $("#id").focus();
-        return;
-    } */
+function upload() {    
 
+	var id=$("#id").val().trim();
     var content = $("#content").val().trim();
+    
     if (content == "") {
         alert("작성글을 입력해 주세요.");
         $("#content").focus();
@@ -86,12 +93,16 @@ function upload() {
     }
     
     var params = new FormData();
-    //params.append("id", id);
-    //params.append("content", content);
+    params.append("id", id);
     params.append("jsonstr", JSON.stringify(jsonobj));
-    params.append("image", imgobj);
-    
+        
+	if (imgobj != null) {
+    	params.append("image", imgobj);
+    }
+   console.log(params);
+   
     var url = "feedAdd.jsp";
+    
     AJAX.call(url, params, function(data) {
         var code = data.trim();
         if(code == "ER") {

@@ -1,0 +1,119 @@
+jsp/servlet 6일차
+
+1) 스크립트태그
+2) 디텍티브태그
+3) 액션태그
+
+JSTL/EL
+
+서블릿 servlet
+jsp 내장객체
+
+JDBC
+DAO
+------------------------
+
+http://localhost:8080/student/studentControl
+http://localhost:8080/studentControl
+
+JSP(Web)-> 57번게시판
+
+ALTER TABLE my_table MODIFY COLUMN my_column VARCHAR(100);
+ALTER TABLE student MODIFY COLUMN birth VARCHAR(100);
+ 
+jsp 실습
+->6번게시판
+데이터목록 조회
+
+mysql에서
+student1.sql
+
+기본키 primary key
+외래키 foreign key
+
+DB생성
+프로젝트생성
+Maven Project 로 변경
+context.xml 만들기
+DB.java - DataSource 객체
+DO 생성-자바빈즈생성
+Student.java
+DAO 생성
+ StudentDAO.java
+
+DO
+DAO
+DB
+
+SELECT s.*, d.departmentName FROM student s LEFT JOIN department d ON s.departmentId = d.id
+
+MySQL에서
+쿼리문 테스트하기
+
+내부조인, 외부조인
+
+
+LEFT JOIN은 
+두 개의 테이블을 연결하여
+ 왼쪽 테이블의 모든 행과 
+오른쪽 테이블의 
+일치하는 행을 결과로 
+반환하는 SQL 연산입니다.
+
+view 설계
+jsp, mustach, thymleaf
+
+studentList1.jsp
+studentList2.jsp
+
+5. 과제
+User 테이블에 
+사용자 목록 출력하기
+
+User.java 생성하기
+UserDAO 생성하기
+
+///////////
+Servlet Controller로 사용하기
+
+UserList2.jsp
+
+http://localhost:8080/student1/userControl
+
+7번게시판 이름으로 조회하기
+
+try-with-resources 구문
+
+try(자원리소스코드){
+
+}
+
+9 번게시판
+04 학생 한명 조회하기
+
+11번게시판
+03학생 CRUD 기능
+
+필터기능
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

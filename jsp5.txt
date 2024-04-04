@@ -56,6 +56,317 @@ servlet->jsp 리다이렉트
 JSP실습->5번게시판 
 입력폼#2
 
+57번게시판
+학생정보조회와 등록
+
+student
+
+web.xml
+
+controller.java
+
+
+/studentcontrol
+
+1) MySQL에서 test DB를 생성
+
+CREATE TABLE student (
+    id INT NOT NULL Primary Key AUTO_INCREMENT,
+    username VARCHAR(20),
+    univ VARCHAR(40),
+    birth DATE,
+    email VARCHAR(40)
+)
+
+2) 학생테이블 생성
+
+3) 학생테이블에 레코드삽입
+
+DO -> Student.java
+DAO -> StudentDAO.java
+
+View -> studentInfo.jsp
+Controller->StudentController.java
+
+pom.xml 라이브러리등록하기
+studentInfo.jsp에
+taglib 등록하기
+
+${students} -> EL
+
+http://localhost:8080/student/studentController
+
+
+
+sql_exam.sql
+1.55KB
+studentInfo.jsp
+1.02KB
+ 
+
+ 
+
+ 
+
+<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+<dependency>
+<groupId>javax.servlet</groupId>
+<artifactId>jstl</artifactId>
+<version>1.2</version>
+</dependency>
+
+ 
+
+<!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+<dependency>
+    <groupId>com.mysql</groupId>
+    <artifactId>mysql-connector-j</artifactId>
+    <version>8.1.0</version>
+</dependency>
+
+ 
+
+final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+
+final String JDBC_URL = "jdbc:mysql://localhost:3306/test?serverTimezone=UTC";
+
+ 
+
+ 
+
+CREATE TABLE student (
+    id INT NOT NULL Primary Key AUTO_INCREMENT,
+    username VARCHAR(20),
+    univ VARCHAR(40),
+    birth DATE,
+    email VARCHAR(40)
+)
+
+ 
+
+SELECT * FROM student;
+SELECT username, email FROM student;
+
+SELECT * FROM student WHERE username = '김길동';
+SELECT * FROM student WHERE username = '김길동' AND univ = 'AA대학교';
+SELECT * FROM student WHERE univ = 'AA대학교' OR univ = 'CC대학교';
+SELECT * FROM product WHERE price BETWEEN 1000 AND 2000;
+
+SELECT ABS(-20), CEILING(20.25) as CE, ROUND(20.25), FLOOR(20.25), SQRT(4) from dual;
+
+SELECT NOW(), CURRENT_TIMESTAMP(), DAYNAME(now()), PARSEDATETIME('10-01-2020','MM-dd-yy','GMT') from dual;
+
+SELECT * FROM student WHERE username LIKE '김%'
+
+SELECT * FROM student ORDER BY username DESC;
+SELECT * FROM student ORDER BY username ASC, univ DESC;
+
+SELECT DISTINCT username FROM student;
+SELECT DISTINCT username, univ  FROM student;
+
+SELECT count(id), SUM(id), AVG(id), MAX(id), MIN(id) FROM student;
+
+ 
+
+INSERT INTO student(username, univ, birth, email) values('김길동','AA대학교','1999-10-21','kim@mail.com');
+INSERT INTO student(username, univ, birth, email) values('아무개','BB대학교','2000-2-1','amg@kkk.com');
+INSERT INTO student(username, univ, birth, email) values('김사랑','AA대학교','2000-3-15','ksr@kmail.com');
+INSERT INTO student(username, univ, birth, email) values('김길동','CC대학교','2001-01-12','mol@bmail.com');
+INSERT INTO student(username, univ, birth, email) values('이리와','BB대학교','2000-5-5','lee@nn.com');
+
+ 
+
+ 
+
+
+
+ 
+
+
+// Student.java
+
+ 
+
+package ch09;
+
+import java.sql.Date;
+
+public class Student {
+   private int id;
+   private String username;
+   private String univ;
+   private Date birth;
+   private String email;
+
+   public int getId() {
+       return id;
+   }
+   public void setId(int id) {
+        this.id = id;
+   }
+   public String getUsername() {
+       return username;
+   }
+   public void setUsername(String username) {
+        this.username = username;
+   }
+   public String getUniv() {
+         return univ;
+   }
+   public void setUniv(String univ) {
+       this.univ = univ;
+   }
+   public Date getBirth() {
+       return birth;
+   }
+   public void setBirth(Date birth) {
+       this.birth = birth;
+   }
+   public String getEmail() {
+      return email;
+  }
+   public void setEmail(String email) {
+        this.email = email;
+  }
+}
+
+ 
+
+
+
+
+
+
+
+
+// StudentDAO.java
+
+ 
+
+package ch09;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class StudentDAO {
+     Connection conn = null;
+     PreparedStatement pstmt;
+
+     final String JDBC_DRIVER = "org.h2.Driver";
+     final String JDBC_URL = "jdbc:h2:tcp://localhost/~/jwbookdb";
+
+     public void open(){
+       try {
+          Class.forName(JDBC_DRIVER);
+          conn = DriverManager.getConnection(JDBC_URL,"jwbook","1234");
+        } catch (Exception e) {
+           e.printStackTrace();
+        }
+     }
+
+  public void close() {
+     try {
+        pstmt.close();
+        conn.close();
+     } catch (SQLException e) {
+        e.printStackTrace();
+     }
+   }
+
+  public void insert(Student s) {
+    open();
+    String sql = "INSERT INTO student(username, univ, birth, email) values(?,?,?,?)";
+
+   try {
+       pstmt = conn.prepareStatement(sql);
+       pstmt.setString(1, s.getUsername());
+        pstmt.setString(2, s.getUniv());
+        pstmt.setDate(3, s.getBirth());
+       pstmt.setString(4, s.getEmail());
+
+       pstmt.executeUpdate();
+    } catch(Exception e) {
+         e.printStackTrace();
+    } finally {
+      close();
+   }
+}
+
+  public List<Student> getAll() {
+     open();
+     List<Student> students = new ArrayList<>();
+
+     try {
+        pstmt = conn.prepareStatement("select * from student");
+        ResultSet rs = pstmt.executeQuery();
+
+        while(rs.next()) {
+           Student s = new Student();
+           s.setId(rs.getInt("id"));
+           s.setUsername(rs.getString("username"));
+           s.setUniv(rs.getString("univ"));
+           s.setBirth(rs.getDate("birth"));
+           s.setEmail(rs.getString("email"));
+
+            students.add(s);
+       }
+     } catch (Exception e) {
+         e.printStackTrace();
+     } finally {
+         close();
+     }
+         return students;
+    }
+}
+
+ 
+
+ 
+
+//  StudentController.java
+
+
+
+// Case 01
+
+ServletContext context = request.getSession().getServletContext();
+
+context.getRequestDispatcher("/04/studentInfo.jsp").forward(request, response);
+
+ 
+
+
+ 
+
+
+<!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+<dependency>
+    <groupId>commons-beanutils</groupId>
+    <artifactId>commons-beanutils</artifactId>
+    <version>1.9.4</version>
+</dependency>
+
+
+http://localhost:8080/studentControl?action=list
+
+http://localhost:8080/studentControl
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

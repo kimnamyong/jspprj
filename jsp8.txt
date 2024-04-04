@@ -1,0 +1,107 @@
+jsp/servlet 8일차
+
+1) 스크립트태그
+2) 디텍티브태그
+3) 액션태그
+
+JSTL/EL
+
+서블릿 servlet
+jsp 내장객체
+
+JDBC
+DAO
+------------------------
+
+BACKEND->JSP(예제)
+3번게시판
+
+AJAX과 JSON실습
+ajax
+
+////////
+부트스트랩으로 화면디자인
+데이터베이스 구축
+모델등록하기- User.java
+데이터베이스연동하기
+DAO 만들기->UserDAO.java
+
+Test 코드 작성하기
+MySQLTest
+
+서블릿코드 만들기
+UserSearchServlet
+
+AJAX
+JSON 
+///////////////
+보통 폼태그 -> get/post
+
+spring form form태그
+get/post/delete/put 
+
+{ result: [   
+ [ {"value":"김세정"  },{} ]
+]}
+
+/UserSearchServlet
+
+SELECT * FROM USER WHERE userName LIKE '%김%';
+
+./UserSearchServlet?userName=김세정
+
+
+Jackson 라이브러리
+JSON 변환 라이브러리
+
+회원등록
+
+페이징처리하기
+-----------------------------
+1) 화면디자인하기
+2) 데이터베이스 설계하기
+3) 모델만들기-DO.java
+   자바빈즈
+4) DAO만들기-java
+5) 서블릿컨트롤러 만들기-java
+ DAO를 통해서
+  json 문자열 객체데이터 보내기
+6) 프런트개발하기 -index.jsp
+ - ajax요청하여 데이터바인딩하기
+
+-----------------------
+페이징처리하기
+JSP(예제) -> 14번게시판
+
+model 
+BoardBean.java
+BoardDAO.java
+BoardList.jsp
+
+등차수열
+1, 6, 11, 16
+
+1~5
+6~10
+11~15
+
+BoardWriteForm.jsp
+BoardWriteProc.jsp
+
+JSP실습->13번게시판
+책 CRUD 기능 구현
+
+book2.sql 을 실행한다.
+
+EER Diagram
+Entity-Relation ship
+
+테이블->엔티티
+
+
+
+
+
+
+
+

@@ -9,7 +9,8 @@
 <%
     request.setCharacterEncoding("utf-8");
 
-    String uid = null, ucon = null, ufname = null;
+    //String uid = null, ucon = null, ufname = null;
+    String jsonstr = null, ufname = null;
     byte[] ufile = null;
 
     ServletFileUpload sfu = new ServletFileUpload(new DiskFileItemFactory());
@@ -19,27 +20,34 @@
     while(iter.hasNext()) {
         FileItem item = (FileItem) iter.next();
         String name = item.getFieldName();
+        System.out.println(name);
+        
         if(item.isFormField()) {
             String value = item.getString("utf-8");
-            if (name.equals("id")) uid = value;
-            else if (name.equals("content")) ucon = value;
+            //if (name.equals("id")) uid = value;
+            //else if (name.equals("content")) ucon = value;
+            if (name.equals("jsonstr")) jsonstr = value;
         }
         else {
             if (name.equals("image")) {
                 ufname = item.getName();
+              
                 ufile = item.get();
                 String root = application.getRealPath(java.io.File.separator);
-                FileUtil.saveImage(root, ufname, ufile);
-                out.print("이미지 업로드가 완료되었습니다.");
+                
+                FileUtil.saveImage(root, ufname, ufile);            
             }
         }
     }
 
      FeedDAO dao = new FeedDAO();
-     if (dao.insert(uid, ucon, ufname)) {
+     
+     if (dao.insert(jsonstr)) {
+    	 out.print("OK");
          response.sendRedirect("main.jsp");
      }
      else {
-         out.print("작성 글의 업로드 중 오류가 발생하였습니다.");
+    	 out.print("ER");
+         //out.print("작성 글의 업로드 중 오류가 발생하였습니다.");
      }
 %>

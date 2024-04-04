@@ -94,7 +94,8 @@ function getFeedCode(feed) {
     str += "</div>";
 
     if (feed.images != null) {
-        var imgstr = "images/" + feed.images[0];
+        var imgstr = "/images/" + feed.images[0];
+       console.log(imgstr);
         str += "<div class='image' style='background-image: url(\"" + imgstr + "\")'></div>";
     }
     str += "<div class='text'>" + feed.content + "</div>";

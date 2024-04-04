@@ -35,8 +35,9 @@
 <script src="js/core.js"></script>
 <script>
 function withdraw() {
-    var id = $("#id").val().trim();
+    var id = $("#id").val().trim();    
     var url ="withdraw.jsp?id=" + id;
+    
     AJAX.call(url, null, function(data) {
         var code = data.trim();
         if(code == "NA") {

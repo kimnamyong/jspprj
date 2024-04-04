@@ -1,0 +1,88 @@
+jsp/servlet 7일차
+
+1) 스크립트태그
+2) 디텍티브태그
+3) 액션태그
+
+JSTL/EL
+
+서블릿 servlet
+jsp 내장객체
+
+JDBC
+DAO
+------------------------
+
+필터기능
+MySNS 프로젝트
+
+JSP(Web)->49번게시판
+AJAX/JSON
+
+다음주에 데이터베이스수업
+그다음스프링
+
+web.xml
+server.xml -> Context path
+
+대문
+
+CharacterEncodingFilter
+
+로그인
+회원가입
+게시글올리기
+세션저장
+회원탈퇴
+
+세션
+id : uid
+
+
+var Page={
+  init:function(){ }
+}
+
+var 고양이={
+  먹다:function(food){ }
+}
+
+고양이.먹다("생선")
+
+// friendAdd.html
+
+// core.css
+
+// friendAdd.jsp
+
+// friendList.jsp
+
+// friendRemove.jsp
+
+
+게시글
+  - 답글1
+  - 답글2
+  - 답글3
+
+
+JSON
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
